@@ -279,3 +279,12 @@ tramp
 # Built Visual Studio Code Extensions
 *.vsix
 podplay-sanctuary-beta-backup/
+
+# Added by Task Master AI
+dev-debug.log
+# Environment variables
+.vscode
+# OS specific
+# Task files
+tasks.json
+tasks/ 

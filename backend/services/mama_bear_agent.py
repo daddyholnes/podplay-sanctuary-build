@@ -31,12 +31,13 @@ class MamaBearAgent:
         try:
             self.vertex_agent_manager = VertexAIAgentManager()
             self.vertex_agent_id = None
-            # Create Mama Bear Vertex AI agent
-            asyncio.create_task(self._initialize_vertex_agent())
-            logger.info("🐻 Mama Bear agent initialized with Vertex AI integration")
+            # Initialize Vertex AI agent synchronously during first use
+            self._vertex_initialized = False
+            logger.info("🐻 Mama Bear agent initialized with Vertex AI integration (deferred)")
         except Exception as e:
             logger.warning(f"⚠️ Vertex AI integration not available: {e}")
             self.vertex_agent_manager = None
+            self._vertex_initialized = False
         
         logger.info("🐻 Mama Bear agent initialized with caring personality")
     
