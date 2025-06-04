@@ -55,12 +55,13 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'sanctuary_mama_bear_secret_d
 # Configure CORS
 CORS(app, origins=["http://localhost:3000", "http://localhost:5173", "https://8001-*.public.scrapybara.com"])
 
-# Initialize SocketIO
+# Initialize SocketIO with threading async mode (compatible with Python 3.12)
 socketio = SocketIO(
     app, 
     cors_allowed_origins=["http://localhost:3000", "http://localhost:5173", "https://8001-*.public.scrapybara.com"],
     logger=True, 
-    engineio_logger=True
+    engineio_logger=True,
+    async_mode='threading'
 )
 
 # Initialize services

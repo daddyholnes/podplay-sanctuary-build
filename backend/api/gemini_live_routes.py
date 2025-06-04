@@ -825,8 +825,8 @@ async def cleanup_inactive_sessions():
             logger.error(f"Error in session cleanup: {e}")
             await asyncio.sleep(900)
 
-# Start cleanup task when module is imported
-asyncio.create_task(cleanup_inactive_sessions())
+# Note: cleanup_inactive_sessions() should be started by the application
+# when the event loop is running, not at module import time
 
 # ===================================================================
 # WebSocket Handler for Real-time Communication

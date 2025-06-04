@@ -8,7 +8,7 @@ import asyncio
 import logging
 from typing import Dict, Any
 
-from ..services.environment_orchestrator import environment_orchestrator
+from services.environment_orchestrator import environment_orchestrator
 
 logger = logging.getLogger(__name__)
 
